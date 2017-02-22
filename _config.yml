@@ -7,8 +7,8 @@ gems:
 permalink:           pretty
 
 # Setup
-url:                 http://localhost:4000/
-# url:                 http://unilight.github.io/
+# url:                 http://localhost:4000/
+url:                 http://unilight.github.io/
 
 # Set to '' in case of hosting on GitHub pages,
 # i.e. `http://<username>.github.io`
@@ -48,7 +48,8 @@ author:
   photo2x:           /public/img/bio.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
-  about:             ""
+  about:             |
+    嗨，我是黃奕光 a.k.a. 黃文勁。 我來自台灣的台北市。 我目前就讀於台灣大學資訊工程學系三年級。 我也是一位Locker.
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
