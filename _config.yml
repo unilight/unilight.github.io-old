@@ -43,8 +43,8 @@ author:
   name:              'Unilight Huang'
 
   # This photo will be used in the about section
-  photo:             /public/img/bio.jpg
-  photo2x:           /public/img/bio.jpg
+  photo:             /public/img/Bio.jpg
+  photo2x:           /public/img/Bio.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
