@@ -7,7 +7,6 @@ gems:
 permalink:           pretty
 
 # Setup
-# url:                 http://localhost:4000/
 url:                 http://unilight.github.io/
 
 # Set to '' in case of hosting on GitHub pages,
