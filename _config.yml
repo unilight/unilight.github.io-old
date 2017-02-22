@@ -7,11 +7,11 @@ gems:
 permalink:           pretty
 
 # Setup
-url:                 http://unilight.github.io
+url:                 https://unilight.github.io/
 
 # Set to '' in case of hosting on GitHub pages,
 # i.e. `http://<username>.github.io`
-baseurl:             ""
+baseurl:             ''
 
 title:               Unilight
 
