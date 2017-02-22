@@ -9,4 +9,7 @@ title: About
 {% endcomment %}
 {% include about-short.html author=site.author %}
 
-[write something about self]
+Hi, I'm Unilight a.k.a. Wen-Chin Huang.  
+I come from Taipei, Taiwan.  
+I am currently a student in the department of Computer Science in National Taiwan University.  
+I am also a street dancer, especially a locker. Locking 4 life!
