@@ -11,6 +11,27 @@
 #     *My Tag* is an example of how to define a custom tag.
 # ~~~
 
+locking:
+  name: Locking
+  image: /public/img/locking.jpg
+  color: '#949667'
+  description: >
+   Recording my dancing life, thoughts and idea.
+
+gametheory:
+  name: Game Theory
+  image: /public/img/game_theory.jpg
+  color: '#949667'
+  description: >
+   Some notes on me studying basic game theory.
+
+courses:
+  name: Courses
+  image: /public/img/game_theory.jpg
+  color: '#949667'
+  description: >
+   Schools courses.
+
 hyde:
   name: Hyde
   image: /public/img/hyde.jpg
