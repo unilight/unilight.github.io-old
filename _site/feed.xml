@@ -1,5 +1,330 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-02-22T22:13:14+08:00</updated><id>http://localhost:4000/</id><title type="html">Unilight</title><subtitle>Locker, Coder, Thinker
-</subtitle><author><name>Unilight Huang</name></author><entry><title type="html">Welcome!</title><link href="http://localhost:4000/2017/02/22/Welcome/" rel="alternate" type="text/html" title="Welcome!" /><published>2017-02-22T00:00:00+08:00</published><updated>2017-02-22T00:00:00+08:00</updated><id>http://localhost:4000/2017/02/22/Welcome</id><content type="html" xml:base="http://localhost:4000/2017/02/22/Welcome/">&lt;p&gt;終於把這個網站架起來了。&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-01T15:08:22+08:00</updated><id>http://localhost:4000/</id><title type="html">Unilight</title><subtitle>Locker, Coder, Thinker
+</subtitle><author><name>Unilight Huang</name></author><entry><title type="html">[Game Theory] Introduction</title><link href="http://localhost:4000/2017/02/28/game-theory-introduction/" rel="alternate" type="text/html" title="[Game Theory] Introduction" /><published>2017-02-28T11:03:00+08:00</published><updated>2017-02-28T11:03:00+08:00</updated><id>http://localhost:4000/2017/02/28/game-theory-introduction</id><content type="html" xml:base="http://localhost:4000/2017/02/28/game-theory-introduction/">&lt;h2 id=&quot;動機&quot;&gt;動機&lt;/h2&gt;
+
+&lt;p&gt;這學期修了一門課叫「網路經濟學」(Economics of networks)，課程內容是把圖論(Graph theory)應用在賽局理論(Game theory)，去model很多經濟學的問題。(詳細課程內容可見我之後的post！)&lt;br /&gt;
+根據課程網，這門課的prerequisites是圖論和賽局理論，但我只有在經原中短短接觸過賽局理論，沒有修過任何賽局專門的課程。因此，趁開學還有空時，我打算先自行學習。&lt;br /&gt;
+剛好&lt;a href=&quot;https://www.coursera.org/learn/game-theory-1/home/&quot;&gt;Coursera&lt;/a&gt;上有這麼一門賽局理論的線上課程，是stanford開的。根據一些影片裡的蛛絲馬跡，似乎是2013年錄製的影片，還不會到很out-of-date，就打算學學看了。&lt;br /&gt;
+這個系列的post應該會記錄一些我自己的學習筆記！&lt;/p&gt;
+
+&lt;h2 id=&quot;definition-of-games&quot;&gt;Definition of games&lt;/h2&gt;
+
+&lt;p&gt;一個game有三個要素：&lt;em&gt;Players&lt;/em&gt;, &lt;em&gt;Actions&lt;/em&gt;, &lt;em&gt;Payoffs&lt;/em&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在課程裡, player有時被稱為agent。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;players-self-interested-agents&quot;&gt;Players: self-interested agents&lt;/h4&gt;
+
+&lt;p&gt;這裡的self-interested的意思不是只關心自己，而對周遭漠不關心的人。而是指&lt;strong&gt;每個agent都有自己的喜惡偏好&lt;/strong&gt;，因此會對現實世界的狀況有不同的description。&lt;/p&gt;
+
+&lt;h4 id=&quot;payoffs-utility-function&quot;&gt;Payoffs: Utility function&lt;/h4&gt;
+
+&lt;p&gt;定義為 “quantifies degree of preferences across alternatives”。在這樣的定義下，根據&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%86%B3%E7%AD%96%E8%AE%BA&quot;&gt;Decision theoretic&lt;/a&gt; rationality，一個理性的agent會試著最大化他的utility。&lt;/p&gt;
+
+&lt;h3 id=&quot;two-standard-representation-of-games&quot;&gt;Two standard representation of games&lt;/h3&gt;
+
+&lt;p&gt;我們通常有兩種game的表示方法：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Normal form (a.k.a matrix form, strategic form)
+    &lt;ul&gt;
+      &lt;li&gt;這個方法會將payoff視為action的函數&lt;/li&gt;
+      &lt;li&gt;所有player會&lt;em&gt;同時(simlutaneously)&lt;/em&gt;做出action&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Extensive form
+    &lt;ul&gt;
+      &lt;li&gt;這種表示法通常會表示成&lt;em&gt;樹狀結構&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;包含時間(timing of moves)&lt;/li&gt;
+      &lt;li&gt;會記錄每個player在作出決定時所知道的資訊&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;mathematical-representation&quot;&gt;Mathematical representation&lt;/h3&gt;
+
+&lt;p&gt;我們可以將一個finite, n-player normal form game表示成&lt;code class=&quot;MathJax_Preview&quot;&gt;\langle N,A,u \rangle&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\langle N,A,u \rangle&lt;/script&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Players: &lt;code class=&quot;MathJax_Preview&quot;&gt;N={1,...,n}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;N={1,...,n}&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;Action set: &lt;code class=&quot;MathJax_Preview&quot;&gt;A_i&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;A_i&lt;/script&gt; 代表 player i 的action
+    &lt;ul&gt;
+      &lt;li&gt;action profile: &lt;code class=&quot;MathJax_Preview&quot;&gt;a=(a_1,...,a_n)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a=(a_1,...,a_n)&lt;/script&gt;，其中 &lt;code class=&quot;MathJax_Preview&quot;&gt;a_i&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a_i&lt;/script&gt; 代表player i的action
+        &lt;blockquote&gt;
+          &lt;p&gt;我覺得這裡的notation非常confusing，不知道為什麼要分大小寫&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Utility function: &lt;code class=&quot;MathJax_Preview&quot;&gt;u_i :A \mapsto R&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_i :A \mapsto R&lt;/script&gt;
+    &lt;ul&gt;
+      &lt;li&gt;utility profile: &lt;code class=&quot;MathJax_Preview&quot;&gt;u=(u_1,...,u_n)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u=(u_1,...,u_n)&lt;/script&gt;，其中 &lt;code class=&quot;MathJax_Preview&quot;&gt;u_i&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;u_i&lt;/script&gt; 代表player i的utility&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;example-of-games&quot;&gt;Example of games&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Prisoner’s dilemma&lt;br /&gt;
+ 課程影片用了一個很有趣的例子：&lt;em&gt;TCP Backoff&lt;/em&gt;！正好是上學期計網的內容XD  這個game的中文敘述如下：&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;TCP Backoff&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;TCP protocol是一種網路上傳遞資料的協定。假設我們要將一個檔案從A傳到B，TCP會將檔案切成很多封包，然後一個一個傳。B收到封包後，會回傳確認訊息(ACK)。傳遞的路上會經過很多node，每個node都有可能隨機丟掉封包(ex.buffer overflow)，造成ACK沒辦法順利回傳到A。若A在傳出一個封包後，沒有在時間內收到ACK，則傳遞速率會降低，也就是back off。但每個人可以選擇遵守(coorperate)或違反(defect)TCP。假設現在網路上有兩個user：&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;若兩個人都遵守TCP，則每個人會有1 ms的delay。&lt;/li&gt;
+        &lt;li&gt;若僅一個人遵守TCP，則他將會有0 ms的delay，而另一個人將有4 ms的delay。&lt;/li&gt;
+        &lt;li&gt;若兩人都不遵守TCP，則每個人會有3 ms的delay。&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;我們可以將這個game用normal form表示：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt; &lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;C&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;D&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;C&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-1,-1&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-4,0&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;D&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;0,-4&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-3,-3&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;事實上，我們可以一般化成這個形式：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt; &lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;C&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;D&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;C&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;a,a&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;b,c&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;D&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;c,b&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;d,d&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;對於任何 &lt;code class=&quot;MathJax_Preview&quot;&gt;c&amp;gt;a&amp;gt;b&amp;gt;d&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;c&gt;a&gt;b&gt;d&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Games of pure competition
+    &lt;ul&gt;
+      &lt;li&gt;剛好2個player&lt;/li&gt;
+      &lt;li&gt;對於任何action profile &lt;code class=&quot;MathJax_Preview&quot;&gt;a \in A , u_1(a)+u_2(a)=c&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a \in A , u_1(a)+u_2(a)=c&lt;/script&gt;
+  若 &lt;code class=&quot;MathJax_Preview&quot;&gt;c = 0&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;c = 0&lt;/script&gt;，則稱為 &lt;em&gt;零合遊戲(zero-sum game)&lt;/em&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;以下是一個例子：&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Penny matching&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;兩個人各丟一枚硬幣。其中一人希望兩枚硬幣正反相同，另一人則希望相反。&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;同樣用normal form表示：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt; &lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Heads&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Tails&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Heads&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;1,-1&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-1,1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Tails&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;-1,1&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;1,-1&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Games of pure coordination
+    &lt;ul&gt;
+      &lt;li&gt;這跟剛剛相反：每個player都想要相同的結果！換句話說，合作(coordinate)才會讓大家受益。&lt;/li&gt;
+      &lt;li&gt;對於任何action profile &lt;code class=&quot;MathJax_Preview&quot;&gt;a \in A , \forall i,j, u_i(a)=u_j(a)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a \in A , \forall i,j, u_i(a)=u_j(a)&lt;/script&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;以下是一個例子：&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Which side of the road to pick?&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;兩個人在路上面對面相遇。若兩人都走向相對的左/右，則不會撞到。反之則撞。&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;同樣用normal form表示：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt; &lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Left&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;Right&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Left&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;1,1&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;0,0&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;right&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;0,0&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;1,1&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;General games
+    &lt;blockquote&gt;
+      &lt;p&gt;我也不知道為什麼要叫general games，一點都不general呀。&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;這裡的例子如下：&lt;/p&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;Battle of Sexes&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;一對男女朋友想要去看電影，男生想看A電影，女生想看B電影。&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;如果他們都選擇去看同一部(這裡我解釋成”表態”)，那他們就會一起去，但比較不想去看那部電影的人的payoff比較低。&lt;/li&gt;
+        &lt;li&gt;如果他們想選擇去看不同部，那他們就會吵架，並不會去看電影。&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;同樣用normal form表示：&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt; &lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;A&lt;/th&gt;
+          &lt;th style=&quot;text-align: center&quot;&gt;B&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;A&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;2,1&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;0,0&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;B&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;0,0&lt;/td&gt;
+          &lt;td style=&quot;text-align: center&quot;&gt;1,2&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;nash-equilibrium&quot;&gt;Nash Equilibrium&lt;/h2&gt;
+
+&lt;p&gt;Nash equilibrium (NE) 有他的數學定義，但我覺得了解他的intuitive definition比較重要。課程中給了幾個定義，我節錄了我認為比較重要的一個：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Nobody has incentive to deviate from their action if an equilibrium profile is played.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;意思是說，就算現在有兩個action profile，不管他們有什麼性質(ex.更靠近提高payoff的condition)，只要對於某player而言，沒有incentive，i.e.payoff沒有更高，則他就沒有理由從一個action換到另一個action。這也是為什麼&lt;em&gt;NE通常會有很多個&lt;/em&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;best-response&quot;&gt;Best Response&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;對於某player i，令 &lt;code class=&quot;MathJax_Preview&quot;&gt;a_{-i}= \langle a_1,...,a_{i-1}, a_{i+1},...,a_n \rangle&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a_{-i}= \langle a_1,...,a_{i-1}, a_{i+1},...,a_n \rangle&lt;/script&gt; 為除了他以外的player的profile，我們可以將某個action profile表示成&lt;code class=&quot;MathJax_Preview&quot;&gt;a=(a_{-1}, a_i)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a=(a_{-1}, a_i)&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Definition:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;{a_i}^{*} \in BR(a_{-i}) \Leftrightarrow \forall a_i \in A_i, u_i({a_i}^{*}, a_{-i}) \geq u_i(a_i, a_{-i})&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;{a_i}^{*} \in BR(a_{-i}) \Leftrightarrow \forall a_i \in A_i, u_i({a_i}^{*}, a_{-i}) \geq u_i(a_i, a_{-i})&lt;/script&gt;
+
+&lt;p&gt;若將&lt;code class=&quot;MathJax_Preview&quot;&gt;a_{-i}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a_{-i}&lt;/script&gt;視為一個條件，則我們定義Best Response為：給定這個條件，採取某action是&lt;em&gt;最好&lt;/em&gt;的。這個「最好」的定義就是一開始提到的：沒有incentive去採取其他行動。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Definition:&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;a=(a_1,...,a_n)&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;a=(a_1,...,a_n)&lt;/script&gt; is a (“pure strategy”) &lt;strong&gt;nash equilibrium&lt;/strong&gt; &lt;code class=&quot;MathJax_Preview&quot;&gt;\Leftrightarrow \forall i , a_i \in  BR(a_{-i}).&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;\Leftrightarrow \forall i , a_i \in  BR(a_{-i}).&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;這句話的意思是說，如果每個人都採取了他的Best Response，則這樣的action profile就形成了Nash equilibrium。也就是說，「是否為NE」可說是一個action profile的性質。&lt;/p&gt;
+
+&lt;h3 id=&quot;domination&quot;&gt;Domination&lt;/h3&gt;
+
+&lt;p&gt;這裡我們得先定義什麼是strategy。但因為目前都只是pure strategy(固定的選某action)，所以我們定義strategy為「採取某action」。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;MathJax_Preview&quot;&gt;s_i, s_i'&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;s_i, s_i'&lt;/script&gt; are two strategies for player i, and &lt;code class=&quot;MathJax_Preview&quot;&gt;S_{-i}&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;S_{-i}&lt;/script&gt; is the set of all possible strategy profiles fot others.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Definition:&lt;/em&gt;&lt;/strong&gt; &lt;code class=&quot;MathJax_Preview&quot;&gt;s_i&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;s_i&lt;/script&gt; strictly dominates &lt;code class=&quot;MathJax_Preview&quot;&gt;S_i'&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;S_i'&lt;/script&gt; if&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\forall s_{-i} \in S_{-i}, u_i(s_i, s_{-i})&amp;gt;u_i(s_i', s_{-i}).&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall s_{-i} \in S_{-i}, u_i(s_i, s_{-i})&gt;u_i(s_i', s_{-i}).&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Definition:&lt;/em&gt;&lt;/strong&gt; Similarly, &lt;code class=&quot;MathJax_Preview&quot;&gt;s_i&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;s_i&lt;/script&gt; very weakly dominates &lt;code class=&quot;MathJax_Preview&quot;&gt;S_i'&lt;/code&gt;&lt;script type=&quot;math/tex&quot;&gt;S_i'&lt;/script&gt; if&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&quot;MathJax_Preview&quot;&gt;&lt;code&gt;\forall s_{-i} \in S_{-i}, u_i(s_i, s_{-i}) \geq u_i(s_i', s_{-i}).&lt;/code&gt;&lt;/pre&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall s_{-i} \in S_{-i}, u_i(s_i, s_{-i}) \geq u_i(s_i', s_{-i}).&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;為什麼要叫very weakly呢？因為允許payoff一樣。如果payoff一樣的話，還能叫dominate嗎？&lt;/li&gt;
+  &lt;li&gt;若某strategy dominate其他所有strategies，則稱它&lt;em&gt;dominant&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;若一個strategy profile裡的所有strategy都是dominant strategy，則它一定是NE.&lt;/li&gt;
+  &lt;li&gt;雖然目前為止討論的都是pure strategy，看不出來差別，這裡可以說是給了前面的討論一個延伸：「是否為NE」可說是一個strategy profile的性質。。&lt;/li&gt;
+  &lt;li&gt;雖然前面有說NE可能有很多個，但若一個strategy profile裡都是strictly dominant strategy，則該NE必為唯一。應該是滿顯而易見的！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;pareto-optimality&quot;&gt;Pareto-optimality&lt;/h3&gt;
+
+&lt;p&gt;前面的討論都針對特定player，但Pareto-optimality著重在整體：怎樣的outcome是對整體都好的？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Definition:&lt;/em&gt;&lt;/strong&gt; 對於兩個 outcome o, o’，若o pareto-dominates o’，則o一定要至少對&lt;em&gt;所有&lt;/em&gt;agent都不比o’差，且對&lt;em&gt;某些&lt;/em&gt;agent而言，他們一定strictly較偏好o。
+    &lt;ul&gt;
+      &lt;li&gt;舉個例子：若o = (-1, 1), o’ = (0, 1)，則對後面的player而言，他的payoff不變，但對前者的player而言是比較好的，因此o pareto-dominates o’。&lt;/li&gt;
+      &lt;li&gt;也就是說，一定要有某些agent的payoff變好。若o = (-1, 1), o’ = (-1, 1)，則o並不pareto-dominate o’。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;Definition:&lt;/em&gt;&lt;/strong&gt; 某outcome是一個pareto-optimal，若沒有其他outcome可以pareto-dominate它。
+    &lt;ul&gt;
+      &lt;li&gt;好難翻譯的一個定義Orz，因為這又是一個負面定義。&lt;/li&gt;
+      &lt;li&gt;可以有很多pareto-optimal。&lt;/li&gt;
+      &lt;li&gt;因為定義裡有「strictly」，所以至少會有一個pareto-optimal。&lt;/li&gt;
+      &lt;li&gt;我覺得Pareto-optimal通常都不好找…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Unilight Huang</name></author><category term="gametheory" /><summary type="html">動機</summary></entry><entry><title type="html">Welcome!</title><link href="http://localhost:4000/2017/02/22/Welcome/" rel="alternate" type="text/html" title="Welcome!" /><published>2017-02-22T00:00:00+08:00</published><updated>2017-02-22T00:00:00+08:00</updated><id>http://localhost:4000/2017/02/22/Welcome</id><content type="html" xml:base="http://localhost:4000/2017/02/22/Welcome/">&lt;p&gt;終於把這個網站架起來了。&lt;br /&gt;
 大三寒假原本想要好好來學一下怎麼架網站，但一直懶病發作，沒辦法，冬天嘛。&lt;br /&gt;
 後來還是決定用&lt;code class=&quot;highlighter-rouge&quot;&gt;Github Pages&lt;/code&gt; + &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; 來實作。&lt;br /&gt;
 雖然已經是偷吃步了，但這幾天還是弄了滿久的。&lt;br /&gt;
