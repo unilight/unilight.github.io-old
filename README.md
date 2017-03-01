@@ -1,3 +1,10 @@
+
+This is Unilight a.k.a. Vincent Huang's [homepage](https://unilight.github.io/), used for blogging.  
+
+This website is adapted from [HydeJack](https://github.com/qwtel/hydejack), an improved version of the theme Hyde for Jekyll. 
+
+***
+
 # Hydejack
 
 Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
