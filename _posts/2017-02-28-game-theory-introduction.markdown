@@ -11,7 +11,7 @@ tag: [gametheory]
 根據課程網，這門課的prerequisites是圖論和賽局理論，但我只有在經原中短短接觸過賽局理論，沒有修過任何賽局專門的課程。因此，趁開學還有空時，我打算先自行學習。  
 剛好[Coursera](https://www.coursera.org/learn/game-theory-1/home/)上有這麼一門賽局理論的線上課程，是stanford開的。根據一些影片裡的蛛絲馬跡，似乎是2013年錄製的影片，還不會到很out-of-date，就打算學學看了。  
 這個系列的post應該會記錄一些我自己的學習筆記！
-
+<!-- more -->
 ## Definition of games
 
 一個game有三個要素：*Players*, *Actions*, *Payoffs*。

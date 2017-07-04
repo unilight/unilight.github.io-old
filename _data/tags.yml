@@ -32,6 +32,13 @@ courses:
   description: >
    Schools courses.
 
+deeplearning:
+  name: Deep Learning
+  image: /public/img/dl.jpg
+  color: '#949667'
+  description: >
+   Some notes on me studying deep learning.
+
 hyde:
   name: Hyde
   image: /public/img/hyde.jpg

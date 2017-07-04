@@ -2,10 +2,9 @@
 layout: default
 ---
 
-HI, I'm light.
-
 {% for post in paginator.posts %}
-  {% include post.html post=post link_title=true %}
+
+  {% include post_index.html post=post link_title=true %}
   <br/>
 {% endfor %}
 
